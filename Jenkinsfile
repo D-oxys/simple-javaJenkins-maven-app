@@ -12,7 +12,7 @@ pipeline {
         stage('Build and Run') {
             steps {
                 // Menjalankan skrip deliver.sh
-                sh './deliver.sh'
+                sh './jenkins/scripts/deliver.sh'
             }
         }
 
