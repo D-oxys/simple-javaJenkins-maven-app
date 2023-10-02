@@ -9,23 +9,26 @@ pipeline {
             }
         }
 
-        stage('Build and Run') {
+        stage('Build') {
             steps {
-                // Menjalankan skrip deliver.sh
-                sh './jenkins/scripts/deliver.sh'
+                sh 'mvn -B -DskipTests clean package'
             }
         }
 
         stage('Test') {
             steps {
-                // Menjalankan pengujian dengan Maven
                 sh 'mvn test'
+            }
+            post {
+                always {
+                    junit '**/target/surefire-reports/*.xml'
+                }
             }
         }
 
-        stage('Post-Build Actions') {
+        stage('Deliver') {
             steps {
-                echo 'berhasilsss...'
+                sh './jenkins/scripts/deliver.sh'
             }
         }
     }
