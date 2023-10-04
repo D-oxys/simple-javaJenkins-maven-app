@@ -33,12 +33,6 @@ pipeline {
             }
         }
 
-        stage('Response') {
-            steps {
-                echo 'done ga bang??'
-            }
-        }
-
         stage('Final') {
             steps {
                 echo 'donee'
