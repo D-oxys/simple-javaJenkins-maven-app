@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     stages {
         stage('Build') {
             steps {
@@ -41,10 +40,7 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-
-        stage('Response') {
-            steps {
-
+        
         stage('Response') {
             steps {
                echo 'done ga bang??'
